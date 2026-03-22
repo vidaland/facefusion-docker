@@ -19,4 +19,8 @@ RUN git clone https://github.com/vidaland/facefusion.git --branch ${FACEFUSION_V
 
 RUN python install.py --onnxruntime cuda --skip-conda
 
+VOLUME [ "/facefusion/.assets", "/facefusion/.caches", "/facefusion/.jobs" ]
+
+EXPOSE 7860
+
 CMD [ "python", "facefusion.py", "run", "--execution-providers", "cuda" ]
